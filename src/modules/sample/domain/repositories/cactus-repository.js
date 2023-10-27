@@ -1,6 +1,7 @@
 class CactusRepository {
   create (cactus) {
     // Implementación para guardar un cactus en la base de datos
+    console.log('Crear un cactus en el repositorio', JSON.stringify(cactus))
   }
 
   update (cactus) {
