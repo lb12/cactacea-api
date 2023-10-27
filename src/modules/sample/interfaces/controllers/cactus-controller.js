@@ -3,9 +3,9 @@ class CactusController {
     this.createCactusUseCase = createCactusUseCase
   }
 
-  async createCactus (req, res) {
-    const createCactusDTO = req.body
+  createCactus = async (req, res) => {
     try {
+      const createCactusDTO = req.body
       const cactus = await this.createCactusUseCase.execute(createCactusDTO)
       res.status(201).json(cactus)
     } catch (error) {
