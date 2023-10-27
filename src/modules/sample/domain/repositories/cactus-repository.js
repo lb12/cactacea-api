@@ -1,16 +1,24 @@
+const Cactus = require("../entities/cactus")
+
 class CactusRepository {
+  /**
+   * The list of cactuses.
+   * @type {Array<Cactus>}
+   */
   list
   constructor () {
     this.list = []
   }
+  /**
+   * Creates a new cactus in the database.
+   *
+   * @param {Cactus} cactus - The cactus object to be saved.
+   * @return {Cactus} The newly created cactus object.
+   */
   create (cactus) {
     // Implementación para guardar un cactus en la base de datos
-    console.log('Crear un cactus en el repositorio', JSON.stringify(cactus))
     const id = this.list.length + 1
-    const doc = {
-      id,
-      ...cactus
-    }
+    const doc = new Cactus(id, cactus.name, cactus.species, cactus.age, cactus.description, cactus.image)
     this.list.push(doc)
     return doc
   }
@@ -19,6 +27,12 @@ class CactusRepository {
     // Implementación para actualizar un cactus en la base de datos
   }
 
+  /**
+   * Obtains a cactus by id.
+   *
+   * @param {number} id - the id of the cactus to retrieve
+   * @return {Cactus} the cactus with the specified id
+   */
   getById (id) {
     // Implementación para obtener un cactus por id
     return this.list.find(cactus => cactus.id === id)
