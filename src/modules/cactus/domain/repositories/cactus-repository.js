@@ -1,5 +1,10 @@
 const Cactus = require("../entities/cactus")
 
+
+/**
+ * Class that represents a cactus repository.
+ * @class
+ */
 class CactusRepository {
   /**
    * The list of cactuses.

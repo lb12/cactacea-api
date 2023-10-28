@@ -7,8 +7,8 @@ const CactusRepository = require('../../domain/repositories/cactus-repository')
 
 const router = express.Router()
 const cactusRepository = new CactusRepository()
-const createCactusUseCase = new CreateCactusUseCase({ cactusRepository })
-const cactusController = new CactusController({ createCactusUseCase })
+const createCactusUseCase = new CreateCactusUseCase(cactusRepository)
+const cactusController = new CactusController(createCactusUseCase)
 
 router.post('/', CactusValidators.validateCreateCactus, cactusController.createCactus)
 

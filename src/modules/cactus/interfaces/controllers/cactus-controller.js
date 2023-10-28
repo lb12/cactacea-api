@@ -1,7 +1,14 @@
 const CreateCactusDTO = require("../../application/dtos/create-cactus-dto")
+const CreateCactusUseCase = require("../../application/use-cases/create-cactus-use-case")
+
 
 class CactusController {
-  constructor({ createCactusUseCase }) {
+  /**
+   * Initializes the constructor with the provided dependencies.
+   *
+   * @param {CreateCactusUseCase} createCactusUseCase - The createCactusUseCase object.
+   */
+  constructor(createCactusUseCase) {
     this.createCactusUseCase = createCactusUseCase
   }
 
